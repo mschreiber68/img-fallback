@@ -1,9 +1,19 @@
 {
   "name": "@mschreiber68/img-fallback",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "A decorator web component that allows an enclosed <img> to specify a fallback src.",
-  "main": "index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "files": [
+    "./dist/**/*"
+  ],
   "scripts": {
+    "clean": "rm -rf ./dist",
+    "build": "npm run clean && tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,5 +30,8 @@
   "bugs": {
     "url": "https://github.com/mschreiber68/img-fallback/issues"
   },
-  "homepage": "https://github.com/mschreiber68/img-fallback#readme"
+  "homepage": "https://github.com/mschreiber68/img-fallback#readme",
+  "devDependencies": {
+    "typescript": "^4.8.4"
+  }
 }

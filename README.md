@@ -1,6 +1,6 @@
 ## Usage
 ```javascript
-import ImgFallback from 'path/to/module';
+import ImgFallback from '@mschreiber68/img-fallback';
 window.customElements.define('img-fallback', ImgFallback);
 ```
 ```html
