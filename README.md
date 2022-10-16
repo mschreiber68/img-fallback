@@ -31,3 +31,6 @@ This allows you to customize the name of the element.
 * Supports mutations (add/modify/remove) of wrapped `<img>` element
 * Uses `display: contents;` so the `<img>` can be treated by layout styles as if the `<img-fallback>` isn't there.
 * As a web component that doesn't modify its internal DOM, `<img-fallback>` is compatible with any frontend framework.
+
+## Demo
+https://mschreiber68.github.io/img-fallback/demo.html
