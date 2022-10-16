@@ -1,34 +1,52 @@
-const template = document.createElement('template');
-template.innerHTML = `
-<style>
-    :host {
-        display: contents;
-    }
-</style>
-<slot></slot>
-`;
-
 export default class ImgFallback extends HTMLElement {
+    #mutationObserver
+    #img
+
     constructor() {
         super();
-        this.attachShadow({mode: 'open'});
-        this.shadowRoot.appendChild(template.content.cloneNode(true));
+        this.style.display = 'contents';
     }
 
     connectedCallback() {
-        const img = this.querySelector('img');
-        if (!img) return;
+        this.#setImg(this.firstElementChild);
 
-        if (img.complete) {
-            if (img.naturalWidth === 0) {
-                this.#loadFallback(img);
-            }
-        } else {
-            img.addEventListener('error', this.#onError);
-        }
+        this.#mutationObserver = new MutationObserver(this.#onMutation);
+        this.#mutationObserver.observe(this, {
+            childList: true
+        })
     }
 
-    #onError = (event) => this.#loadFallback(event.target);
+    disconnectedCallback() {
+        this.#mutationObserver.disconnect();
+        this.#setImg(null);
+    }
+
+    #onMutation = () => {
+        this.#setImg(this.firstElementChild);
+    }
+
+    #onImgError = (event) => this.#loadFallback(event.target);
+
+    #setImg(img) {
+        if (img === this.#img) return;
+
+        if (this.#img) {
+            this.#img.removeEventListener('error', this.#onImgError);
+        }
+
+        if (!(img instanceof HTMLImageElement)) {
+            this.#img = null;
+            return;
+        }
+
+        if (img.complete && img.naturalWidth === 0) {
+            this.#loadFallback(img);
+        }
+
+        img.addEventListener('error', this.#onImgError);
+
+        this.#img = img;
+    }
 
     #loadFallback(img) {
         const fallbackSrc = this.getAttribute('src');
