@@ -1,10 +1,3 @@
-`<img-fallback>` is a web component that wraps an `<img>` element. 
-It takes a `src` attribute. 
-If the wrapped image fails to load, the component will attempt to have the `<img>` fallback to the image specified in the component's `src`.
-
-`<img-fallback>` uses `display: contents` in order to not act as a block around the image it wraps. 
-This allows the component to act as a pure decorator for the `<img>` within, so users can continue to develop with the `<img>` as they normally would.
-
 ## Usage
 ```javascript
 import ImgFallback from 'path/to/module';
@@ -15,10 +8,6 @@ window.customElements.define('img-fallback', ImgFallback);
     <img src="https://example.com/intended-image.png">
 </img-fallback>
 ```
-
-## Features
-
-
 
 ## Installation
 ### Install via NPM:
@@ -36,3 +25,9 @@ npm i @mschreiber68/img-fallback
 
 With either installation method, you must register the component as a custom element.
 This allows you to customize the name of the element.
+
+## Features
+* Custom element name is defined by user
+* Supports mutations (add/modify/remove) of wrapped `<img>` element
+* Uses `display: contents;` so the `<img>` can be treated by layout styles as if the `<img-fallback>` isn't there.
+* As a web component that doesn't modify its internal DOM, `<img-fallback>` is compatible with any frontend framework.
