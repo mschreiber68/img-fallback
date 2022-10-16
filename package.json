@@ -1,6 +1,6 @@
 {
   "name": "@mschreiber68/img-fallback",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A decorator web component that allows an enclosed <img> to specify a fallback src.",
   "main": "index.js",
   "scripts": {
