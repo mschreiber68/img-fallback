@@ -8,7 +8,7 @@ template.innerHTML = `
 <slot></slot>
 `;
 
-export class ImgFallback extends HTMLElement {
+export default class ImgFallback extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: 'open'});
