@@ -32,5 +32,7 @@ This allows you to customize the name of the element.
 * Uses `display: contents;` so the `<img>` can be treated by layout styles as if the `<img-fallback>` isn't there.
 * As a web component that doesn't modify its internal DOM, `<img-fallback>` is compatible with any frontend framework.
 
+In order to simplify the implementation, fallback behavior is only applied to a single `<img>` in the inner DOM, and this `<img>` must be the first child of `<img-fallback>`. 
+
 ## Demo
 https://mschreiber68.github.io/img-fallback/demo.html
