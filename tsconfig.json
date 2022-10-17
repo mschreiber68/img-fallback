@@ -4,6 +4,7 @@
     "forceConsistentCasingInFileNames": true,
     "declaration": true,
     "declarationMap": true,
+    "allowSyntheticDefaultImports": true,
     "lib": ["ES2021", "DOM"],
     "target": "ES2021",
     "module": "ESNext",
