@@ -18,7 +18,7 @@ npm i @mschreiber68/img-fallback
 ### Download via CDN:
 ```html
 <script type="module">
-    import ImgFallback from 'https://unpkg.com/browse/@mschreiber68/img-fallback/dist/esm/index.js'
+    import ImgFallback from 'https://unpkg.com/@mschreiber68/img-fallback@0.0.5/dist/esm/index.js'
     window.customElements.define('img-fallback', ImgFallback);
 </script>
 ```
