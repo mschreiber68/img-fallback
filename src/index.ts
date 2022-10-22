@@ -55,3 +55,7 @@ export default class ImgFallback extends HTMLElement {
         img.src = fallbackSrc;
     }
 }
+
+if (typeof window !== 'undefined' && !window.customElements.get('img-fallback')) {
+    window.customElements.define('img-fallback', ImgFallback);
+}

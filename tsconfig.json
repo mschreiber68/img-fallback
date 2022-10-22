@@ -12,8 +12,8 @@
     "lib": ["ES2021", "DOM"],
     "target": "ES2021",
     "module": "ESNext",
-    "outDir": "./dist/esm",
-    "declarationDir": "./dist/esm/types"
+    "outDir": "./dist",
+    "declarationDir": "./dist/types"
   },
   "files": ["./src/index.ts"]
 }
